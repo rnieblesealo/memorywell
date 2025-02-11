@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
+    "axios": "^1.7.9",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
     "postcss": "^8.5.2",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",

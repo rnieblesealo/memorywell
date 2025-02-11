@@ -1,17 +1,12 @@
 import PageContext from "../util/PageContext"
+import PageHeader from "../components/PageHeader"
 import Song from "../components/Song"
 
 // NOTE: grab updated album covers w/spotify api
 export default function Music() {
   return (
     <PageContext>
-      <div className="w-full h-[200px] bg-black text-white flex items-center justify-center text-center text-[48px] overflow-hidden">
-        <img
-          src="/music-bg.jpeg"
-          className="w-full grayscale contrast-200 opacity-30"
-        />
-        <span className="absolute">Music</span>
-      </div>
+      <PageHeader imgSrc="/music-bg.jpeg" title="Music" />
       <ul className="w-min-content overflow-hidden">
         <Song
           imgSrc="https://i.scdn.co/image/ab67616d00001e023d8793fdb20e4d31c8d3fed7"
