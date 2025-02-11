@@ -1,9 +1,13 @@
 import PropTypes from "prop-types"
 
-export default function LinkButton({ icon, src }) {
+export default function LinkButton({ icon, src, useIconBg }) {
+  const iconStyle = useIconBg
+    ? "flex items-center w-min-content aspect-square text-[48px] text-black bg-white p-3 rounded-full"
+    : "flex items-center w-min-content aspect-square text-[48px] text-white p-3"
+
   const graphic = icon
     ? (
-      <div className="flex items-center w-min-content aspect-square text-white text-[48px] text-black bg-white p-3 rounded-full">
+      <div className={iconStyle}>
         {icon}
       </div>
     )
@@ -25,5 +29,6 @@ export default function LinkButton({ icon, src }) {
 
 LinkButton.propTypes = {
   icon: PropTypes.node,
-  src: PropTypes.string
+  src: PropTypes.string,
+  useIconBg: PropTypes.bool
 }

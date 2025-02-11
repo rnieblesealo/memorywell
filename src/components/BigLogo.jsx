@@ -1,10 +1,12 @@
 export default function BigLogo() {
   return (
-    <img
-      src=""
-      alt="Logo"
-      width="40%"
-      className="bg-white aspect-square"
+    <video
+      src="/logo.mp4"
+      width="100%"
+      className="bg-white"
+      autoPlay
+      loop
+      muted
     />
   )
 }

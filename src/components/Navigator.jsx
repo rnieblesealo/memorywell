@@ -13,20 +13,28 @@ export default function Navigator() {
     "justify-left",
   )
 
+  const selectBorder = clsx(
+    "transition-border",
+    "duration-[0.2s]",
+    "border-b-[1px]",
+    "cursor-pointer",
+    "border-transparent",
+    "hover:border-white"
+  )
+
   return (
-    <nav className={`${flexRow} p-4 mb-6 h-min-content`}>
+    <nav className={`${flexRow} p-4  h-min-content`}>
       <img
-        src=""
+        src="/public/small-logo.png"
         alt="Small Logo"
-        width="130px"
+        width="100px"
         height="50px"
-        className="bg-white"
       />
       <ul className={`${text} ${flexRow} ml-auto gap-10`}>
-        <li>Home</li>
-        <li>Music</li>
-        <li>Live</li>
-        <li>Bio</li>
+        <li className={selectBorder}>Home</li>
+        <li className={selectBorder}>Music</li>
+        <li className={selectBorder}>Live</li>
+        <li className={selectBorder}>Bio</li>
       </ul>
     </nav>
   )

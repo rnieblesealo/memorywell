@@ -2,11 +2,13 @@ import PropTypes from "prop-types"
 
 export default function StreamMenu({ children }) {
   return (
-    <li>
-      <nav className="flex flex-wrap flex-row gap-6">
-        {children}
-      </nav>
-    </li>
+    <>
+      <li>
+        <nav className="flex flex-wrap flex-row gap-6">
+          {children}
+        </nav>
+      </li>
+    </>
   )
 }
 
