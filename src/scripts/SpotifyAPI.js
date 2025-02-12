@@ -36,11 +36,11 @@ async function getSpotifyAccessToken() {
   }
 }
 
-export async function getArtistAlbums() {
+export default async function getAlbumInfo() {
   // get access token
   const token = await getSpotifyAccessToken()
   if (!token) {
-    return
+    return null
   }
 
   try {
@@ -53,13 +53,13 @@ export async function getArtistAlbums() {
     })
 
     // log retrieved items
-    console.log("Artist albums: ", response.data.items)
+    // console.log("Artist albums: ", response.data.items)
 
+    // give back data we want
+    return response.data.items
   } catch (error) {
     // do this if any error occurs
     console.error("Error fetching access token: ", error)
     return null;
   }
 }
-
-getArtistAlbums()

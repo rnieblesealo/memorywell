@@ -12,9 +12,9 @@ export default function Song({ imgSrc, title, release, writtenBy, producedBy, re
       <div className="font-liter flex flex-col ml-5">
         <span className="text-[32px] font-instrument font-[400] italic">{title}</span>
         <span className="text-gray-600">{release ?? "(Release)"}</span>
-        <span>Written by {writtenBy ?? "(Writers)"}</span>
-        <span>Produced by {producedBy ?? "(Producers)"}</span>
-        <span>Recorded at {recordedAt ?? "(Recorded at...)"}</span>
+        <span>{writtenBy ?? ""}</span>
+        <span>{producedBy ?? ""}</span>
+        <span>{recordedAt ?? ""}</span>
       </div>
     </li>
   )
