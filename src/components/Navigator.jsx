@@ -27,7 +27,7 @@ export default function Navigator() {
   )
 
   const Menu = () => (
-    <ul className={`${text} ${flexRow} ml-auto gap-10`}>
+    <ul className={`${text} ${flexRow} ml-auto gap-10 animate-fade-right`}>
       <li className={selectBorder}>
         <Link to="/" className={selectBorder}>Home</Link>
       </li>
@@ -45,7 +45,7 @@ export default function Navigator() {
 
   const BurgerButton = () => (
     <button
-      className="ml-auto text-white text-[28px] cursor-pointer"
+      className="animate-jump-in ml-auto text-white text-[28px] cursor-pointer"
       onClick={() => {
         context.enableFullscreenNavigator(true)
         document.body.style.overflow = "hidden";
@@ -59,7 +59,7 @@ export default function Navigator() {
 
   return (
     <nav className={`${flexRow} p-4  h-min-content`}>
-      <Link to="/" className="transition-opacity duration-[0.2s] hover:opacity-50">
+      <Link to="/" className="transition-opacity duration-[0.2s] hover:opacity-50 animate-fade-left">
         <img
           src="/public/small-logo.png"
           alt="Small Logo"

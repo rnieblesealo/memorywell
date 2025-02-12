@@ -33,7 +33,7 @@ export default function TimerContextProvider({ children }) {
         document.body.style.overflow = "visible";
 
       }}>
-        <IoMdClose className="animate-jump-in text-[32px] absolute right-0 m-4" />
+        <IoMdClose className="animate-jump-in text-[32px] absolute right-0 mr-4 mt-2" />
       </button>
       <ul className="w-full h-full flex flex-col items-center justify-top p-12">
         <li className="animate-fade-right p-5">Home</li>
@@ -44,7 +44,7 @@ export default function TimerContextProvider({ children }) {
 
   // useful context-related info
   const [fullscreenNavigator, enableFullscreenNavigator] = useState(false)
-  const [burgerButton, enableBurgerButton] = useState(true)
+  const [burgerButton, enableBurgerButton] = useState(false)
 
   const contextInfo = {
     fullscreenNavigator,
