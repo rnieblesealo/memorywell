@@ -1,11 +1,15 @@
 export default function BigLogo() {
   return (
-    <video
-      src="/logo.mp4"
-      className="bg-black w-full h-[71vh] object-cover"
-      autoPlay
-      loop
-      muted
-    />
+    <div className="w-full pointer-events-none">
+      <video
+        src="/logo.mp4"
+        className="bg-black w-full h-[70vh] object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        disablePictureInPicture
+      />
+    </div>
   )
 }

@@ -1,7 +1,7 @@
 export default function SmallLogo() {
   return (
     <img
-      src="/public/small-logo.png"
+      src="/small-logo.png"
       alt="Small Logo"
       width="100px"
       height="50px"
