@@ -2,6 +2,8 @@ import clsx from "clsx"
 import { Link } from "react-router-dom"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { UsePageContext } from "../util/PageContext"
+import SmallLogo from "../components/SmallLogo"
+import NavButton from "../components/NavButton"
 
 export default function Navigator() {
   const text = clsx(
@@ -16,36 +18,24 @@ export default function Navigator() {
     "justify-left",
   )
 
-  const selectBorder = clsx(
-    "transition-border",
+  const purpleHover = clsx(
+    "transition-text",
     "duration-[0.2s]",
-    "border-b-[1px]",
-    "cursor-pointer",
-    "border-transparent",
-    "hover:border-purple-400",
     "hover:text-purple-400",
+    "active:text-purple-600"
   )
 
   const Menu = () => (
     <ul className={`${text} ${flexRow} ml-auto gap-10 animate-fade-right`}>
-      <li className={selectBorder}>
-        <Link to="/" className={selectBorder}>Home</Link>
-      </li>
-      <li className={selectBorder}>
-        <Link to="/about" className={selectBorder}>About</Link>
-      </li>
-      <li className={selectBorder}>
-        <Link to="/music" className={selectBorder}>Music</Link>
-      </li>
-      <li className={selectBorder}>
-        <Link className={selectBorder}>Merch</Link>
-      </li>
+      <NavButton to="/" text="Home" />
+      <NavButton to="/about" text="About" />
+      <NavButton to="/music" text="Music" />
     </ul>
   )
 
   const BurgerButton = () => (
     <button
-      className="animate-jump-in ml-auto text-white text-[28px] cursor-pointer"
+      className={`${purpleHover} animate-jump-in ml-auto text-white text-[28px] cursor-pointer`}
       onClick={() => {
         context.enableFullscreenNavigator(true)
         document.body.style.overflow = "hidden";
@@ -59,13 +49,8 @@ export default function Navigator() {
 
   return (
     <nav className={`${flexRow} p-4  h-min-content`}>
-      <Link to="/" className="transition-opacity duration-[0.2s] hover:opacity-50 animate-fade-left">
-        <img
-          src="/public/small-logo.png"
-          alt="Small Logo"
-          width="100px"
-          height="50px"
-        />
+      <Link to="/" className="animate-fade-left">
+        <SmallLogo />
       </Link>
       {context.burgerButton ? <BurgerButton /> : <Menu />}
     </nav>

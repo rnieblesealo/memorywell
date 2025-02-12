@@ -30,15 +30,15 @@ export default function Show() {
   )
 
   return (
-    <li className={`${flexCol} animate-fade-right w-full bg-black border-[1px] border-white mb-4 p-6 rounded-lg text-white`}>
+    <li className={`${flexCol} animate-fade-right w-full bg-black border-[1px] border-white mb-4 p-6 rounded-lg text-white text-center`}>
       <span className="font-instrument italic text-[24px]">(Show Name)</span>
       <span className="">(Lineup)</span>
       <span className="">(Location)</span>
       <span className="mb-3">(Time, Place, Cost)</span>
 
       <div className={`${flexRow} gap-2`} >
-        <button className={`${borderPurpleHover} font-liter text-white bg-black border-white border-[1px] p-3 rounded-lg`}>Remind Me</button>
-        <button className={`${buttonPurpleHover} font-liter bg-white text-black rounded-lg p-3`}>Tickets</button>
+        <button className={`${borderPurpleHover} h-full font-liter text-white bg-black border-white border-[1px] p-3 rounded-lg`}>Remind Me</button>
+        <button className={`${buttonPurpleHover} h-full font-liter bg-white text-black rounded-lg p-3`}>Tickets</button>
       </div>
     </li>
   )

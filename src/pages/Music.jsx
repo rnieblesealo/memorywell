@@ -6,9 +6,9 @@ import { nanoid } from "nanoid"
 
 import getAlbumInfo from "../scripts/SpotifyAPI"
 
-// NOTE: grab updated album covers w/spotify api
-export default function Music() {
-  // get music info  
+// NOTE: having as separate component avoids triggering re-render on music load
+function MusicList() {
+  // get music info 
   const [songs, setSongs] = useState([])
   useEffect(() => {
     getAlbumInfo().then((data) => {
@@ -32,10 +32,18 @@ export default function Music() {
   }, [])
 
   return (
+    <>
+      {songs}
+    </>
+  )
+}
+
+export default function Music() {
+  return (
     <PageContext>
       <PageHeader imgSrc="/music-bg.jpeg" title="Music" />
       <ul className="w-min-content overflow-hidden">
-        {songs}
+        <MusicList />
       </ul>
     </PageContext>
   )

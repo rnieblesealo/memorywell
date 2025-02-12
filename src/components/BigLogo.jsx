@@ -2,8 +2,7 @@ export default function BigLogo() {
   return (
     <video
       src="/logo.mp4"
-      width="100%"
-      className="bg-white max-h-[500px] object-cover"
+      className="bg-black w-full h-[71vh] object-cover"
       autoPlay
       loop
       muted

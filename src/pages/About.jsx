@@ -6,7 +6,7 @@ export default function About() {
     <PageContext>
       <PageHeader title="About" imgSrc="/music-bg.jpeg"/>
       <p className="text-white">
-        We fucking love music.
+        (Insert bio here!)
       </p>
     </PageContext>
   )

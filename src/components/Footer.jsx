@@ -15,13 +15,13 @@ export default function Footer({ children }) {
   )
 
   return (
-    <footer className="mt-10 mb-10 flex flex-col items-center justify-center gap-12 w-full h-min-content">
+    <footer className="mt-10 mb-10 flex flex-col items-center justify-center w-full gap-9 h-min-content">
       <nav>
-        <ul className={`${flexRow} justify-center gap-10`}>
+        <ul className={`${flexRow} justify-center gap-2`}>
           {children}
         </ul>
       </nav>
-      <p className={`${text} flex w-[70%] items-center justify-center`}>
+      <p className={`${text} flex w-[70%] items-center justify-center text-center`}>
         Bookings: memorywellband@gmail.com
       </p>
     </footer>

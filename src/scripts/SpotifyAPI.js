@@ -25,7 +25,6 @@ async function getSpotifyAccessToken() {
 
     // grab access token from response
     const accessToken = tokenResponse.data.access_token;
-    console.log("Access token: ", accessToken)
 
     // return it!
     return accessToken;

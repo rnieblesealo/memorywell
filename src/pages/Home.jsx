@@ -2,7 +2,6 @@ import BigLogo from "../components/BigLogo"
 import FeaturedVideo from "../components/FeaturedVideo"
 import LinkButton from "../components/LinkButton"
 import StreamMenu from "../components/StreamMenu"
-import Show from "../components/Show"
 import ShowList from "../components/ShowList"
 
 import { FaSpotify } from "react-icons/fa"
@@ -17,18 +16,10 @@ export default function Home() {
         <BigLogo />
         <FeaturedVideo />
         <StreamMenu>
-          <LinkButton icon={<FaSpotify />} />
-          <LinkButton icon={<SiApplemusic />} />
+          <LinkButton url="https://open.spotify.com/artist/6Cf1gaO3TNZcFlT209avc8" icon={<FaSpotify />} />
+          <LinkButton url="https://music.apple.com/us/artist/memory-well/1663607861" icon={<SiApplemusic />} />
         </StreamMenu>
         <ShowList>
-          <Show />
-          <Show />
-          <Show />
-          <Show />
-          <Show />
-          <Show />
-          <Show />
-          <Show />
         </ShowList>
       </PageContext>
     </>

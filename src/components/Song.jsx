@@ -7,7 +7,7 @@ export default function Song({ imgSrc, title, release, writtenBy, producedBy, re
       <img
         src={`${imgSrc}`}
         alt="Song Cover"
-        className="w-[200px] bg-white aspect-square"
+        className="w-full max-w-[150px] bg-white aspect-square"
       />
       <div className="font-liter flex flex-col ml-5">
         <span className="text-[32px] font-instrument font-[400] italic">{title}</span>

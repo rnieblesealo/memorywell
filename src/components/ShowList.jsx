@@ -18,10 +18,19 @@ export default function ShowList({ children }) {
 
   const borderPurpleHover = clsx(
     "transition-all",
+    "cursor-pointer",
     "duration-[0.2s]",
     "hover:border-purple-400",
-    "hover:text-purple-400"
+    "hover:text-purple-400",
+    "active:border-purple-600",
+    "active:text-purple-600",
   )
+
+  const Placeholder = () => {
+    return (
+      <span className="text-white text-center italic">No bookings yet! We&apos;ll be around...</span>
+    )
+  }
 
   return (
     <>
@@ -33,8 +42,8 @@ export default function ShowList({ children }) {
             <li className={`${borderPurpleHover} w-full h-full text-center text-white bg-[rgba(255,255,255,0)] border-[1px] flex items-center justify-center rounded-lg`}>Past</li>
           </ul>
         </nav>
-        <ul className="w-full h-[600px] overflow-y-auto flex flex-col items-center gap-1 p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
-          {children}
+        <ul className="w-full max-h-[600px] overflow-y-auto flex flex-col items-center gap-1 p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
+          {children ?? <Placeholder />}
         </ul>
       </div>
     </>

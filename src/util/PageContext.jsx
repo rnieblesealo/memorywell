@@ -3,16 +3,15 @@ import { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import Navigator from "../components/Navigator"
 import LinkButton from "../components/LinkButton"
+import NavButton from "../components/NavButton"
 import Footer from "../components/Footer"
 import { FaHeart } from "react-icons/fa6"
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
 import clsx from "clsx"
-
 
 const PageContext = createContext(null);
 
@@ -33,18 +32,19 @@ export default function TimerContextProvider({ children }) {
         document.body.style.overflow = "visible";
 
       }}>
-        <IoMdClose className="animate-jump-in text-[32px] absolute right-0 mr-4 mt-2" />
+        <IoMdClose className="animate-jump-in text-[32px] absolute right-0 mr-4 mt-2 z-20" />
       </button>
-      <ul className="w-full h-full flex flex-col items-center justify-top p-12">
-        <li className="animate-fade-right p-5">Home</li>
-        <li className="animate-fade-right p-5">About</li>
+      <ul className="animate-fade-right w-full h-full flex flex-col items-center justify-top p-12 gap-6">
+        <NavButton to="/" text="Home" />
+        <NavButton to="/about" text="About" />
+        <NavButton to="/music" text="Music" />
       </ul>
     </div>
   )
 
   // useful context-related info
   const [fullscreenNavigator, enableFullscreenNavigator] = useState(false)
-  const [burgerButton, enableBurgerButton] = useState(false)
+  const [burgerButton, enableBurgerButton] = useState(window.innerWidth < 500)
 
   const contextInfo = {
     fullscreenNavigator,
@@ -77,10 +77,9 @@ export default function TimerContextProvider({ children }) {
           {children}
         </div>
         <Footer className="flex">
-          <LinkButton icon={<FaYoutube />} useIconBg />
-          <LinkButton icon={<FaInstagram />} useIconBg />
-          <LinkButton icon={<FaTiktok />} useIconBg />
-          <LinkButton icon={<FaTwitter />} useIconBg />
+          <LinkButton url="https://www.youtube.com/channel/UCh1N3JnevpEqFpCceQZH7aQ" icon={<FaYoutube />} useIconBg />
+          <LinkButton url="https://www.instagram.com/memorywell.wav/" icon={<FaInstagram />} useIconBg />
+          <LinkButton url="https://www.facebook.com/profile.php?id=61557936762251" icon={<FaFacebook />} useIconBg />
         </Footer>
       </PageContext.Provider >
       <div className="flex items-center justify-center">

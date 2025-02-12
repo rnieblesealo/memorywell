@@ -1,9 +1,27 @@
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
+import clsx from "clsx"
 
-export default function LinkButton({ icon, src, useIconBg }) {
+export default function LinkButton({ url, icon, src, useIconBg }) {
+  const borderPurpleHover = clsx(
+    "transition-all",
+    "cursor-pointer",
+    "duration-[0.2s]",
+    "hover:text-purple-400",
+    "active:text-purple-600",
+  )
+
+  const bgPurpleHover = clsx(
+    "transition-all",
+    "cursor-pointer",
+    "duration-[0.2s]",
+    "hover:bg-purple-400",
+    "active:bg-purple-600",
+  )
+
   const iconStyle = useIconBg
-    ? "flex items-center w-min-content aspect-square text-[48px] text-black bg-white p-3 rounded-full"
-    : "flex items-center w-min-content aspect-square text-[48px] text-white p-3"
+    ? `${bgPurpleHover} flex items-center w-min-content aspect-square text-[32px] text-black bg-white p-3 rounded-full`
+    : `${borderPurpleHover} flex items-center w-min-content aspect-square text-[48px] text-white p-3`
 
   const graphic = icon
     ? (
@@ -22,12 +40,15 @@ export default function LinkButton({ icon, src, useIconBg }) {
 
   return (
     <li>
-      {graphic}
+      <a href={url} target="_blank">
+        {graphic}
+      </a>
     </li>
   )
 }
 
 LinkButton.propTypes = {
+  url: PropTypes.string,
   icon: PropTypes.node,
   src: PropTypes.string,
   useIconBg: PropTypes.bool

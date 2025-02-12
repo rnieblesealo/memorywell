@@ -6,8 +6,7 @@ export default function FeaturedVideo() {
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
       allowfullscreen
-      width="50%"
-      className="aspect-video"
+      className="aspect-video w-[90%] max-w-[600px]"
     />
   )
 }
