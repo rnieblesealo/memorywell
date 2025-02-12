@@ -30,7 +30,7 @@ export default function Show() {
   )
 
   return (
-    <li className={`${flexCol} w-full bg-black border-[1px] border-white mb-4 p-6 rounded-lg text-white`}>
+    <li className={`${flexCol} animate-fade-right w-full bg-black border-[1px] border-white mb-4 p-6 rounded-lg text-white`}>
       <span className="font-instrument italic text-[24px]">(Show Name)</span>
       <span className="">(Lineup)</span>
       <span className="">(Location)</span>

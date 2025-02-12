@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 // FIXME: div gets smaller if info overflows...
 export default function Song({ imgSrc, title, release, writtenBy, producedBy, recordedAt }) {
   return (
-    <li className="text-white flex flex-row justify-left p-5">
+    <li className="animate-fade-right text-white flex flex-row justify-left p-5">
       <img
         src={`${imgSrc}`}
         alt="Song Cover"
