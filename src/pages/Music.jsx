@@ -21,6 +21,7 @@ function MusicList() {
           imgSrc={`${album.images[0].url}`}
           title={`${album.name}`}
           release={`${new Date(album.release_date).toLocaleString("en-US", { year: "numeric", month: "long" })}`}
+          link={`${album.external_urls.spotify}`}
         />
       ))
 

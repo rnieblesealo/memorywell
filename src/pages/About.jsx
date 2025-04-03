@@ -5,7 +5,7 @@ export default function About() {
   return (
     <PageContext>
       <PageHeader title="About" imgSrc="/music-bg.jpeg" />
-      <div className="flex w-3/4 gap-3 animate-fade-up animate-duration-[600ms]">
+      <div className="text-center md:text-left flex flex-col items-center justify-center md:flex-row md:justify-top md:items-start w-3/4 md:w-1/2 gap-3 animate-fade-up animate-duration-[600ms]">
         <img
           src="./members.jpg"
           className="w-60 rounded-lg"
