@@ -5,6 +5,7 @@ import Navigator from "../components/Navigator"
 import LinkButton from "../components/LinkButton"
 import NavButton from "../components/NavButton"
 import Footer from "../components/Footer"
+import { Link } from "react-router-dom"
 import { FaHeart } from "react-icons/fa6"
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -83,7 +84,14 @@ export default function TimerContextProvider({ children }) {
         </Footer>
       </PageContext.Provider >
       <div className="flex items-center justify-center">
-        <span className="flex flex-row items-center gap-2 text-white font-tiny5">Made by Rafa with <FaHeart color="#F90605" /></span>
+        <Link
+          to="https://www.rnieb.dev/"
+          target="_blank"
+          className="
+            flex flex-row items-center gap-2 text-white font-tiny5 mb-10
+            transition-text duration-200 hover:text-yellow-300">
+          Made by Rafa with <FaHeart color="#F90605" />
+        </Link>
       </div>
     </>
   )
