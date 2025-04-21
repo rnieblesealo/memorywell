@@ -1,6 +1,17 @@
 import clsx from "clsx"
+import PropTypes from "prop-types"
 
-export default function Show() {
+export default function Show({
+  date,
+  time,
+  venue,
+  city,
+  state,
+  price,
+  ticketLink,
+  ageRestriction,
+  otherBands
+}) {
   const flexRow = clsx(
     "flex",
     "flex-row",
@@ -31,10 +42,11 @@ export default function Show() {
 
   return (
     <li className={`${flexCol} animate-fade-right w-full bg-black border-[1px] border-white mb-4 p-6 rounded-lg text-white text-center`}>
-      <span className="font-instrument italic text-[24px]">(Show Name)</span>
-      <span className="">(Lineup)</span>
-      <span className="">(Location)</span>
-      <span className="mb-3">(Time, Place, Cost)</span>
+      <span className="">{venue}</span>
+      <span className="">{city}, {state}</span>
+      <span className="">With {otherBands}</span>
+      <span className="">{date}, {time}</span>
+      <span className="">{price}, {ageRestriction}+</span>
 
       <div className={`${flexRow} gap-2`} >
         <button className={`${borderPurpleHover} h-full font-liter text-white bg-black border-white border-[1px] p-3 rounded-lg`}>Remind Me</button>
@@ -42,4 +54,16 @@ export default function Show() {
       </div>
     </li>
   )
+}
+
+Show.propTypes = {
+  date: PropTypes.string,
+  time: PropTypes.string,
+  venue: PropTypes.string,
+  city: PropTypes.string,
+  state: PropTypes.string,
+  price: PropTypes.number | null,
+  ticketLink: PropTypes.string | null,
+  ageRestriction: PropTypes.string | null,
+  otherBands: PropTypes.string | null
 }
