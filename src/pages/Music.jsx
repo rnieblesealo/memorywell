@@ -1,4 +1,4 @@
-import PageContext from "../util/PageContext"
+import { PageContextProvider } from "../util/PageContext"
 import PageHeader from "../components/PageHeader"
 import Song from "../components/Song"
 import { useEffect, useState } from "react"
@@ -41,11 +41,11 @@ function MusicList() {
 
 export default function Music() {
   return (
-    <PageContext>
+    <PageContextProvider>
       <PageHeader imgSrc="/music-bg.jpeg" title="Music" />
       <ul className="w-min-content overflow-hidden">
         <MusicList />
       </ul>
-    </PageContext>
+    </PageContextProvider>
   )
 }

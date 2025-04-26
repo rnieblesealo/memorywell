@@ -17,7 +17,7 @@ import clsx from "clsx"
 const PageContext = createContext(null);
 
 // contains things every page needs like header, footer, etc...
-export default function TimerContextProvider({ children }) {
+export function PageContextProvider({ children, mode }) {
   const main = clsx(
     "flex",
     "flex-col",
@@ -69,6 +69,23 @@ export default function TimerContextProvider({ children }) {
     }
   }, [])
 
+  // switch the bg
+  useEffect(() => {
+    switch (mode) {
+      case "normal":
+        document.body.style.backgroundColor = "black"
+        document.body.style.background = "black"
+        break;
+      case "almostReal":
+        document.body.style.backgroundColor = "black"
+        document.body.style.background = "linear-gradient(to right, #000222, black)"
+        break;
+      default:
+        document.body.style.backgroundColor = "black"
+        document.body.style.background = "black"
+    }
+  }, [mode])
+
   return (
     <>
       <PageContext.Provider value={contextInfo}>
@@ -108,6 +125,7 @@ export function UsePageContext() {
   return context;
 }
 
-TimerContextProvider.propTypes = {
-  children: PropTypes.node
+PageContextProvider.propTypes = {
+  children: PropTypes.node,
+  mode: PropTypes.oneOf([null, "normal", "almostReal"])
 }
