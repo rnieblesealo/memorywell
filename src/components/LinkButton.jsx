@@ -1,30 +1,27 @@
 import PropTypes from "prop-types"
-import clsx from "clsx"
+import { UsePageContext } from "../util/context"
+import { useState } from "react"
 
 export default function LinkButton({ url, icon, src, useIconBg }) {
-  const borderPurpleHover = clsx(
-    "transition-all",
-    "cursor-pointer",
-    "duration-[0.2s]",
-    "hover:text-purple-400",
-    "active:text-purple-600",
-  )
+  const ctx = UsePageContext()
 
-  const bgPurpleHover = clsx(
-    "transition-all",
-    "cursor-pointer",
-    "duration-[0.2s]",
-    "hover:bg-purple-400",
-    "active:bg-purple-600",
-  )
+  const [hovered, setHovered] = useState(false)
 
   const iconStyle = useIconBg
-    ? `${bgPurpleHover} flex items-center w-min-content aspect-square text-[32px] text-black bg-white p-3 rounded-full`
-    : `${borderPurpleHover} flex items-center w-min-content aspect-square text-[48px] text-white p-3`
+    ? "flex items-center w-min-content aspect-square text-[32px] text-black bg-white p-3 rounded-full"
+    : "flex items-center w-min-content aspect-square text-[48px] text-white p-3"
 
   const graphic = icon
     ? (
-      <div className={iconStyle}>
+      <div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className={iconStyle}
+        style={{
+          color: hovered ? ctx.currentStyle?.accentColor : (useIconBg ? "black" : "white"),
+          transition: "color 0.2s ease",
+
+        }}>
         {icon}
       </div>
     )

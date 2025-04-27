@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom"
+import { UsePageContext } from "../util/context"
+
 import PropTypes from "prop-types"
+
 import { useState } from "react"
 
 export default function Show({
@@ -11,12 +14,10 @@ export default function Show({
   supportingArtists,
   ageRestriction,
   ticketLink,
-  mode
 }) {
+  const ctx = UsePageContext()
 
   const [tixHovered, setTixHovered] = useState(false)
-
-  const accentColor = mode === "almostReal" ? "oklch(54.6% 0.245 262.881)" : "oklch(60.6% 0.25 292.717)"
 
   const ticketsElement = ticketLink
     ? <Link
@@ -27,17 +28,17 @@ export default function Show({
       className="h-full font-liter bg-white text-black rounded-lg p-3 font-bold"
       style={{
         transition: "background-color 0.2s ease",
-        backgroundColor: tixHovered ? accentColor : "white"
+        backgroundColor: tixHovered ? ctx.currentStyle?.accentColor : "white"
       }}>
       Get Tickets
     </Link>
     : <span className="font-bold">Tickets at door</span>
 
-  const priceElement = price ? <span className="text-lg font-bold">${price}</span> : null
+  const priceElement = price ? <span className="text-lg font-bold px-2 border rounded-xl">${price}</span> : null
   const ageElement = ageRestriction ? <span className="">Ages {ageRestriction}+</span> : null
 
   const ShowDate = ({ date }) => {
-    if (!date){
+    if (!date) {
       return null
     }
 
@@ -69,14 +70,14 @@ export default function Show({
   }
 
   return (
-    <li className="flex flex-col items-center gap-3 animate-fade-right w-full bg-black border-[1px] border-white mb-4 p-6 rounded-lg text-white text-center">
+    <li className="flex flex-col items-center gap-3 animate-fade-up w-full bg-black border-[1px] border-white p-6 rounded-lg text-white text-center">
       <span className="">
         {city}{state ? `, ${state}` : ''}
       </span>
 
       <span
         className="text-2xl font-instrument font-bold italic"
-        style={{ color: accentColor }}>
+        style={{ color: ctx.currentStyle?.accentColor }}>
         {venue}
       </span>
 
@@ -104,5 +105,4 @@ Show.propTypes = {
   ageRestriction: PropTypes.number,   // can be null
   ticketLink: PropTypes.string,  // can be null
   flyerLink: PropTypes.string,   // can be null
-  mode: PropTypes.oneOf([null, "normal", "almostReal"]) // visual style
 }

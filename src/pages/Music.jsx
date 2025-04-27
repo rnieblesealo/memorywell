@@ -1,10 +1,10 @@
-import { PageContextProvider } from "../util/PageContext"
+import { PageContextProvider } from "../util/context"
 import PageHeader from "../components/PageHeader"
 import Song from "../components/Song"
 import { useEffect, useState } from "react"
 import { nanoid } from "nanoid"
 
-import getAlbumInfo from "../scripts/SpotifyAPI"
+import getAlbumInfo from "../scripts/spotify"
 
 // NOTE: having as separate component avoids triggering re-render on music load
 function MusicList() {

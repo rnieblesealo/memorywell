@@ -1,29 +1,26 @@
-import clsx from "clsx"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
-import { UsePageContext } from "../util/PageContext"
+import { UsePageContext } from "../util/context"
+import { useState } from "react"
 
-export default function NavButton({ className, to, text }) {
-  const selectBorder = clsx(
-    "transition-border",
-    "transition-text",
-    "duration-[0.2s]",
-    "border-b-[1px]",
-    "cursor-pointer",
-    "border-transparent",
-    "hover:border-purple-400",
-    "hover:text-purple-400",
-    "active:border-purple-600",
-    "active:text-purple-600",
-  )
+export default function NavButton({ to, text }) {
+  const ctx = UsePageContext()
 
-  const context = UsePageContext()
+  const [hovered, setHovered] = useState(false)
 
   return (
-    <li className={`${className} ${selectBorder}`}>
+    <li
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="cursor-pointer border-transparent"
+      style={{
+        color: hovered ? ctx.currentStyle?.accentColor : "white",
+        borderBottom: hovered ? `2px solid ${ctx.currentStyle?.accentColor}` : "2px solid transparent",
+        transition: "color 0.2s ease, border-bottom 0.2s ease"
+      }}>
       <Link className="w-full h-full" to={to}>
         <button className="w-full h-full" onClick={() => {
-          context.enableFullscreenNavigator(false)
+          ctx.enableFullscreenNavigator(false)
           document.body.style.overflow = "visible"
         }}>
           {text}

@@ -17,13 +17,13 @@ const PageContext = createContext(null);
 
 const styles = {
   normal: {
-    accentColor: "purple",
+    accentColor: "oklch(60.6% 0.25 292.717)",
     hero: <hero.NormalLogo />,
     background: "black",
     backgroundColor: "black"
   },
   almostReal: {
-    accentColor: "blue",
+    accentColor: "oklch(54.6% 0.245 262.881)",
     hero: <hero.AlmostRealLogo />,
     background: "linear-gradient(to right, #000222, black)",
     backgroundColor: "black"

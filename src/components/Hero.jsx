@@ -1,8 +1,8 @@
-import { UsePageContext } from "../util/PageContext"
+import { UsePageContext } from "../util/context"
 
 const Hero = () => {
   const ctx = UsePageContext()
-  return ctx.currentStyle.hero
+  return ctx.currentStyle?.hero
 }
 
 export default Hero

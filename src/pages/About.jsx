@@ -1,4 +1,4 @@
-import { PageContextProvider } from "../util/PageContext"
+import { PageContextProvider } from "../util/context"
 import PageHeader from "../components/PageHeader"
 
 export default function About() {
