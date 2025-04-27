@@ -11,20 +11,32 @@ import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-
-import clsx from "clsx"
+import * as hero from "./hero"
 
 const PageContext = createContext(null);
 
+const styles = {
+  normal: {
+    accentColor: "purple",
+    hero: <hero.NormalLogo />,
+    background: "black",
+    backgroundColor: "black"
+  },
+  almostReal: {
+    accentColor: "blue",
+    hero: <hero.AlmostRealLogo />,
+    background: "linear-gradient(to right, #000222, black)",
+    backgroundColor: "black"
+  }
+}
+
 // contains things every page needs like header, footer, etc...
-export function PageContextProvider({ children, mode }) {
-  const main = clsx(
-    "flex",
-    "flex-col",
-    "items-center",
-    "justify-center",
-    "gap-10"
-  )
+export function PageContextProvider({ children, style }) {
+  const [currentStyle, setCurrentStyle] = useState(styles.normal)
+
+  useEffect(() => {
+    setCurrentStyle(styles[style])
+  }, [style])
 
   const FullscreenNavigator = () => (
     <div className="w-screen h-screen bg-black text-white text-[28px] fixed inset-0 z-10">
@@ -51,7 +63,8 @@ export function PageContextProvider({ children, mode }) {
     fullscreenNavigator,
     enableFullscreenNavigator,
     burgerButton,
-    enableBurgerButton
+    enableBurgerButton,
+    currentStyle
   }
 
   // switch to burger menu on small screen
@@ -71,27 +84,16 @@ export function PageContextProvider({ children, mode }) {
 
   // switch the bg
   useEffect(() => {
-    switch (mode) {
-      case "normal":
-        document.body.style.backgroundColor = "black"
-        document.body.style.background = "black"
-        break;
-      case "almostReal":
-        document.body.style.backgroundColor = "black"
-        document.body.style.background = "linear-gradient(to right, #000222, black)"
-        break;
-      default:
-        document.body.style.backgroundColor = "black"
-        document.body.style.background = "black"
-    }
-  }, [mode])
+    document.body.style.backgroundColor = styles?.[style]?.backgroundColor
+    document.body.style.background = styles?.[style]?.background
+  }, [style])
 
   return (
-    <>
+    <div>
       <PageContext.Provider value={contextInfo}>
         {fullscreenNavigator && <FullscreenNavigator />}
         <Navigator />
-        <div className={main}>
+        <div className="flex flex-col items-center justify-center gap-10">
           {children}
         </div>
         <Footer className="flex">
@@ -99,7 +101,7 @@ export function PageContextProvider({ children, mode }) {
           <LinkButton url="https://www.instagram.com/memorywell.wav/" icon={<FaInstagram />} useIconBg />
           <LinkButton url="https://www.facebook.com/profile.php?id=61557936762251" icon={<FaFacebook />} useIconBg />
         </Footer>
-      </PageContext.Provider >
+      </PageContext.Provider>
       <div className="flex items-center justify-center">
         <Link
           to="https://www.rnieb.dev/"
@@ -110,7 +112,7 @@ export function PageContextProvider({ children, mode }) {
           Made by Rafa with <FaHeart color="#F90605" />
         </Link>
       </div>
-    </>
+    </div>
   )
 }
 
@@ -127,5 +129,5 @@ export function UsePageContext() {
 
 PageContextProvider.propTypes = {
   children: PropTypes.node,
-  mode: PropTypes.oneOf([null, "normal", "almostReal"])
+  style: PropTypes.oneOf([null, "normal", "almostReal"])
 }
