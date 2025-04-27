@@ -60,11 +60,11 @@ export const AlmostRealLogo = () => {
           className="max-w-3/4 object-cover"
           autoPlay
         />
+        <span className="mb-[50px] text-white font-instrument font-bold italic text-lg">EP Release Tour 4/25 - 5/4</span>
         <div className="flex">
           <StreamLink url="https://open.spotify.com/album/1LNTWgrNWucP77V2AXNk4M" icon={<FaSpotify />} />
           <StreamLink url="https://music.apple.com/us/album/almost-real-ep/1805090561" icon={<SiApplemusic />} />
         </div>
-        <span className="mt-[50px] text-white font-instrument font-bold italic text-lg">EP Release Tour 4/25 - 5/4</span>
       </div>
     </div >
   )
