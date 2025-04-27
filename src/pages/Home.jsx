@@ -10,13 +10,13 @@ import { PageContextProvider } from "../util/PageContext"
 
 export default function Home() {
   return (
-    <PageContextProvider mode="almostReal">
-      <BigLogo mode="almostReal" />
+    <PageContextProvider mode="normal">
+      <BigLogo mode="normal" />
       <StreamMenu>
         <LinkButton url="https://open.spotify.com/artist/6Cf1gaO3TNZcFlT209avc8" icon={<FaSpotify />} />
         <LinkButton url="https://music.apple.com/us/artist/memory-well/1663607861" icon={<SiApplemusic />} />
       </StreamMenu>
-      <ShowList mode="almostReal" />
+      <ShowList mode="normal" />
     </PageContextProvider>
   )
 }
