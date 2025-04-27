@@ -1,13 +1,16 @@
 import PropTypes from "prop-types"
+import { UsePageContext } from "../util/context"
 
-export default function PageHeader({ imgSrc, title }) {
+export default function PageHeader({ title }) {
+  const ctx = UsePageContext()
+
   return (
     <div className="animate-fade-right w-full h-[200px] bg-black text-white flex items-center justify-center text-center text-[48px] overflow-hidden relative">
       <div className="w-full h-full absolute">
       </div>
       <img
-        src={`${imgSrc ?? "/music-bg.jpeg"}`}
-        className="w-full contrast-200 opacity-30"
+        src={ctx.currentStyle?.pageHeader}
+        className="w-full brightness-50"
       />
       <span className="absolute">{title ?? "(Heading...)"}</span>
     </div>

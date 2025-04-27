@@ -46,7 +46,7 @@ function MusicList() {
 
 export default function Music() {
   return (
-    <div className="flex flex-col items-center justify-center gap-10">
+    <div className="flex flex-col items-center justify-top gap-10">
       <PageHeader imgSrc="/music-bg.jpeg" title="Music" />
       <StreamMenu>
         <LinkButton url="https://open.spotify.com/artist/6Cf1gaO3TNZcFlT209avc8" icon={<FaSpotify />} />

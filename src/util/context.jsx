@@ -19,12 +19,14 @@ const styles = {
   normal: {
     accentColor: "oklch(60.6% 0.25 292.717)",
     hero: <hero.NormalLogo />,
+    pageHeader: "/music-bg.jpeg",
     background: "black",
     backgroundColor: "black"
   },
   almostReal: {
     accentColor: "oklch(54.6% 0.245 262.881)",
     hero: <hero.AlmostRealLogo />,
+    pageHeader: "/arhero.jpg",
     background: "linear-gradient(to right, #000222, black)",
     backgroundColor: "black"
   }

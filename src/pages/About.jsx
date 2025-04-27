@@ -2,7 +2,7 @@ import PageHeader from "../components/PageHeader"
 
 export default function About() {
   return (
-    <div className="flex flex-col items-center justify-center gap-10">
+    <div className="flex flex-col items-center justify-top gap-10">
       <PageHeader title="About" imgSrc="/music-bg.jpeg" />
       <div className="text-center md:text-left flex flex-col items-center justify-center md:flex-row md:justify-top md:items-start w-3/4 md:w-1/2 gap-3 animate-fade-up animate-duration-[600ms]">
         <img
