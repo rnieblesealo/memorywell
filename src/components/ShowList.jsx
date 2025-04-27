@@ -72,12 +72,6 @@ export default function ShowList({ mode }) {
     <>
       <h1 className="text-white text-4xl font-instrument font-extrabold">Shows</h1>
       <div className={`${flexCol} w-[60%] h-min-content`}>
-        <nav className="w-full h-[40px]">
-          <ul className={`${flexRow} w-full h-full gap-2`}>
-            <li className={`${borderPurpleHover} bg-black w-full h-full text-center text-white border-[1px] flex items-center justify-center rounded-lg`}>Upcoming</li>
-            <li className={`${borderPurpleHover} bg-black w-full h-full text-center text-white border-[1px] flex items-center justify-center rounded-lg`}>Past</li>
-          </ul>
-        </nav>
         <ul className="w-full max-h-[600px] overflow-y-auto flex flex-col items-center gap-1 p-4 rounded-lg">
           {showCards ?? placeholder}
         </ul>

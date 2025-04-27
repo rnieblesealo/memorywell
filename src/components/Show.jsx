@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
+import { useState } from "react"
 
 export default function Show({
   date,
@@ -12,16 +13,34 @@ export default function Show({
   ticketLink,
   mode
 }) {
-  const accentColor = mode === "almostReal" ? "oklch(54.6% 0.245 262.881)" : "white"
+
+  const [tixHovered, setTixHovered] = useState(false)
+
+  const accentColor = mode === "almostReal" ? "oklch(54.6% 0.245 262.881)" : "oklch(60.6% 0.25 292.717)"
 
   const ticketsElement = ticketLink
-    ? <Link to={ticketLink} target="_blank" className="h-full font-liter bg-white text-black rounded-lg p-3">Get Tickets</Link>
+    ? <Link
+      to={ticketLink}
+      target="_blank"
+      onMouseEnter={() => setTixHovered(true)}
+      onMouseLeave={() => setTixHovered(false)}
+      className="h-full font-liter bg-white text-black rounded-lg p-3 font-bold"
+      style={{
+        transition: "background-color 0.2s ease",
+        backgroundColor: tixHovered ? accentColor : "white"
+      }}>
+      Get Tickets
+    </Link>
     : <span className="font-bold">Tickets at door</span>
 
-  const priceElement = price ? <span className="">${price}</span> : null
+  const priceElement = price ? <span className="text-lg font-bold">${price}</span> : null
   const ageElement = ageRestriction ? <span className="">Ages {ageRestriction}+</span> : null
 
   const ShowDate = ({ date }) => {
+    if (!date){
+      return null
+    }
+
     const d = new Date(date);
 
     const datePart = d.toLocaleDateString('en-US', {
@@ -51,14 +70,14 @@ export default function Show({
 
   return (
     <li className="flex flex-col items-center gap-3 animate-fade-right w-full bg-black border-[1px] border-white mb-4 p-6 rounded-lg text-white text-center">
+      <span className="">
+        {city}{state ? `, ${state}` : ''}
+      </span>
+
       <span
         className="text-2xl font-instrument font-bold italic"
         style={{ color: accentColor }}>
         {venue}
-      </span>
-
-      <span className="">
-        {city}{state ? `, ${state}` : ''}
       </span>
 
       {supportingArtists && supportingArtists.length > 0 && (
