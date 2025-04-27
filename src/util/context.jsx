@@ -5,7 +5,7 @@ import Navigator from "../components/Navigator"
 import LinkButton from "../components/LinkButton"
 import NavButton from "../components/NavButton"
 import Footer from "../components/Footer"
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import { FaHeart } from "react-icons/fa6"
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -31,7 +31,7 @@ const styles = {
 }
 
 // contains things every page needs like header, footer, etc...
-export function PageContextProvider({ children, style }) {
+export function PageContextProvider({ style }) {
   const [currentStyle, setCurrentStyle] = useState(styles.normal)
 
   useEffect(() => {
@@ -93,9 +93,7 @@ export function PageContextProvider({ children, style }) {
       <PageContext.Provider value={contextInfo}>
         {fullscreenNavigator && <FullscreenNavigator />}
         <Navigator />
-        <div className="flex flex-col items-center justify-center gap-10">
-          {children}
-        </div>
+        <Outlet />
         <Footer className="flex">
           <LinkButton url="https://www.youtube.com/channel/UCh1N3JnevpEqFpCceQZH7aQ" icon={<FaYoutube />} useIconBg />
           <LinkButton url="https://www.instagram.com/memorywell.wav/" icon={<FaInstagram />} useIconBg />
