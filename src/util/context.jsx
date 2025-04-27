@@ -41,7 +41,7 @@ export function PageContextProvider({ style }) {
   }, [style])
 
   const FullscreenNavigator = () => (
-    <div className="w-screen h-screen bg-black text-white text-[28px] fixed inset-0 z-10">
+    <div className="w-screen h-screen bg-black text-white text-[28px] fixed inset-0 z-20">
       <button onClick={() => {
         enableFullscreenNavigator(false)
         document.body.style.overflow = "visible";
