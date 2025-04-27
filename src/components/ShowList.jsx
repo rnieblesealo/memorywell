@@ -47,8 +47,7 @@ export default function ShowList() {
 
   return (
     <>
-      <h1 className="text-white text-4xl font-instrument font-extrabold">Shows</h1>
-
+      <h1 className="text-white text-3xl font-instrument font-extrabold">Upcoming Shows</h1>
       <div className="flex flex-col items-center justify-left w-[60%] h-min-content">
         <div className="w-full max-h-[600px] overflow-y-auto flex flex-col items-center gap-1 p-4 rounded-lg relative">
           {/* Scrollable content wrapper */}

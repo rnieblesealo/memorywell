@@ -4,6 +4,7 @@ export default function StreamMenu({ children }) {
   return (
     <>
       <li>
+        <h1 className="text-white text-center text-3xl font-instrument font-extrabold">Stream</h1>
         <nav className="flex flex-wrap flex-row gap-6">
           {children}
         </nav>

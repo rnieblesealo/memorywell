@@ -28,9 +28,9 @@ export const AlmostRealLogo = () => {
         target="_blank"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="max-w-15 text-md h-min font-liter text-white rounded-lg p-2 font-extrabold flex items-center mx-1"
+        className="max-w-15 text-md h-min font-liter text-white rounded-lg p-2 flex items-center mx-1"
         style={{
-          border: hovered ? `3px solid ${ctx.currentStyle?.accentColor}` : "3px solid white",
+          border: hovered ? `1px solid ${ctx.currentStyle?.accentColor}` : "1px solid white",
           color: hovered ? ctx.currentStyle?.accentColor : "white",
           transition: "border 0.2s ease, color 0.2s ease",
         }}>
