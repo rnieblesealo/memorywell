@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import clsx from "clsx"
 
-export default function ShowList({ children }) {
+export default function ShowList({ children, mode }) {
   const flexRow = clsx(
     "flex",
     "flex-row",
@@ -35,14 +35,14 @@ export default function ShowList({ children }) {
   return (
     <>
       <h1 className="text-white text-[42px]">Shows</h1>
-      <div className={`${flexCol} w-[60%] h-min-content bg-black`}>
+      <div className={`${flexCol} w-[60%] h-min-content`}>
         <nav className="w-full h-[40px]">
           <ul className={`${flexRow} w-full h-full gap-2`}>
-            <li className={`${borderPurpleHover} w-full h-full text-center text-white bg-[rgba(255,255,255,0)] border-[1px] flex items-center justify-center rounded-lg`}>Upcoming</li>
-            <li className={`${borderPurpleHover} w-full h-full text-center text-white bg-[rgba(255,255,255,0)] border-[1px] flex items-center justify-center rounded-lg`}>Past</li>
+            <li className={`${borderPurpleHover} bg-transparent w-full h-full text-center text-white border-[1px] flex items-center justify-center rounded-lg`}>Upcoming</li>
+            <li className={`${borderPurpleHover} bg-transparent w-full h-full text-center text-white border-[1px] flex items-center justify-center rounded-lg`}>Past</li>
           </ul>
         </nav>
-        <ul className="w-full max-h-[600px] overflow-y-auto flex flex-col items-center gap-1 p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
+        <ul className="w-full max-h-[600px] overflow-y-auto flex flex-col items-center gap-1 p-4 rounded-lg">
           {children ?? <Placeholder />}
         </ul>
       </div>
@@ -51,5 +51,6 @@ export default function ShowList({ children }) {
 }
 
 ShowList.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  mode: PropTypes.oneOf([null, "normal", "almostReal"])
 }

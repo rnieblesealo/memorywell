@@ -1,6 +1,18 @@
 import clsx from "clsx"
+import PropTypes from "prop-types"
 
-export default function Show() {
+export default function Show({
+  id,
+  date,
+  venue,
+  city,
+  state,
+  price,
+  supportingArtists,
+  ageRestriction,
+  ticketLink,
+  flyerLink,
+}) {
   const flexRow = clsx(
     "flex",
     "flex-row",
@@ -31,10 +43,11 @@ export default function Show() {
 
   return (
     <li className={`${flexCol} animate-fade-right w-full bg-black border-[1px] border-white mb-4 p-6 rounded-lg text-white text-center`}>
-      <span className="font-instrument italic text-[24px]">(Show Name)</span>
-      <span className="">(Lineup)</span>
-      <span className="">(Location)</span>
-      <span className="mb-3">(Time, Place, Cost)</span>
+      <span className="">{venue}</span>
+      <span className="">{city}, {state}</span>
+      <span className="">With {supportingArtists}</span>
+      <span className="">{date}</span>
+      <span className="">{price}, {ageRestriction}+</span>
 
       <div className={`${flexRow} gap-2`} >
         <button className={`${borderPurpleHover} h-full font-liter text-white bg-black border-white border-[1px] p-3 rounded-lg`}>Remind Me</button>
@@ -42,4 +55,17 @@ export default function Show() {
       </div>
     </li>
   )
+}
+
+Show.propTypes = {
+  id: PropTypes.number.isRequired,
+  date: PropTypes.string,        // can be null
+  venue: PropTypes.string,       // can be null
+  city: PropTypes.string,        // can be null
+  state: PropTypes.string,       // can be null
+  price: PropTypes.number,       // can be null
+  supportingArtists: PropTypes.array, // JSON array
+  ageRestriction: PropTypes.number,   // can be null
+  ticketLink: PropTypes.string,  // can be null
+  flyerLink: PropTypes.string,   // can be null
 }
