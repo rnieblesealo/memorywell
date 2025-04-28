@@ -50,7 +50,7 @@ export const AlmostRealLogo = () => {
   return (
     <div className="w-full relative h-[70vh] flex items-center justify-center relative" >
       <img
-        src="/ar.gif"
+        src="/ar-alt.gif"
         className="bg-black w-full h-full object-cover absolute pointer-events-none"
         autoPlay
       />

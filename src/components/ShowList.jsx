@@ -24,9 +24,16 @@ export default function ShowList() {
   const placeholder = <span className="text-white text-center italic">No bookings yet! We&apos;ll be around...</span>
 
   const showCards = shows?.map((show) => {
-    // only display upcoming shows; if no date set, render it anyway
-    if (show.date && (new Date(show.date) < Date.now())) {
-      return null
+    // only display upcoming shows 
+    // a show is considered "past" if the current time is more than 4 hours ahead of its doors time
+    if (show.date) {
+      const showDate = new Date(show.date);
+      const now = new Date() // returns now if no arg
+      const fourHours = 5 * 60 * 60 * 1000; // 4 hours in milliseconds
+
+      if (now.getTime() > showDate.getTime() + fourHours) {
+        return null;
+      }
     }
 
     return (
@@ -46,32 +53,25 @@ export default function ShowList() {
   })
 
   return (
-    <>
-      <h1 className="text-white text-3xl font-instrument font-extrabold">Upcoming Shows</h1>
-      <div className="flex flex-col items-center justify-left w-[60%] h-min-content">
-        <div className="w-full max-h-[600px] overflow-y-auto flex flex-col items-center gap-1 p-4 rounded-lg relative">
-          {/* Scrollable content wrapper */}
-          <div className="relative w-full flex flex-col rounded-2xl">
-            {/* Top gradient */}
-            <div
-              style={{ background: `linear-gradient(to top, transparent, ${ctx.currentStyle?.accentColor})` }}
-              className="absolute top-0 left-0 w-full h-10 pointer-events-none z-10 rounded-lg"
-            />
+    <div className="w-full h-full flex flex-col items-center">
+      <div className="flex flex-col items-center">
+        <span className="text-white text-2xl font-instrument font-bold">Upcoming Shows</span>
+        <span className="text-white text-sm font-instrument">(Scroll Down!)</span>
+      </div>
 
-            {/* Actual list */}
-            <ul className="flex flex-col items-center w-full gap-2 relative">
-              {showCards ?? placeholder}
-            </ul>
-
-            {/* Bottom gradient */}
-            <div
-              style={{ background: `linear-gradient(to bottom, transparent, ${ctx.currentStyle?.accentColor})` }}
-              className="absolute bottom-0 left-0 w-full h-10 pointer-events-none z-10 rounded-lg"
-            />
-          </div>
+      <div className="flex flex-col items-center justify-left w-3/5 sm:w-4/5">
+        <div className="relative w-full h-full">
+          <div
+            className="w-full h-full absolute z-20 pointer-events-none rounded-2xl"
+            style={{
+              background: `linear-gradient(to bottom, transparent 60%, black 100%)`
+            }} />
+          <ul className="flex flex-col items-center gap-2 relative p-4">
+            {showCards ?? placeholder}
+          </ul>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

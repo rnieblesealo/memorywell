@@ -24,10 +24,10 @@ const styles = {
     backgroundColor: "black"
   },
   almostReal: {
-    accentColor: "oklch(54.6% 0.245 262.881)",
+    accentColor: "#0049ad",
     hero: <hero.AlmostRealLogo />,
-    pageHeader: "/arhero.jpg",
-    background: "linear-gradient(to right, #000222, black)",
+    pageHeader: "/arhero-alt.png",
+    background: "linear-gradient(to right, #000f24, black)",
     backgroundColor: "black"
   }
 }

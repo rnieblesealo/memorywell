@@ -15,8 +15,8 @@ export default function Song({ imgSrc, title, release, writtenBy, producedBy, re
           className="w-full max-w-[150px] bg-white aspect-square"
         />
         <div className="font-liter flex flex-col ml-5">
-          <span className="text-[32px] font-instrument font-[400] italic">{title}</span>
-          <span className="text-gray-600">{release ?? "(Release)"}</span>
+          <span className="text-xl font-instrument font-[400] italic">{title}</span>
+          <span className="text-gray-600 text-sm">{release ?? "(Release)"}</span>
           <span>{writtenBy ?? ""}</span>
           <span>{producedBy ?? ""}</span>
           <span>{recordedAt ?? ""}</span>
