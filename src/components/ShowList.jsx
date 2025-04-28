@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react"
 import { getAllShows } from "../scripts/client"
 
-import { UsePageContext } from "../util/context"
-
 import PropTypes from "prop-types"
 import Show from "../components/Show"
 
 export default function ShowList() {
-  const ctx = UsePageContext()
-
   const [shows, setShows] = useState(null)
 
   useEffect(() => {
@@ -21,7 +17,7 @@ export default function ShowList() {
     loadShows()
   }, [])
 
-  const placeholder = <span className="text-white text-center italic">No bookings yet! We&apos;ll be around...</span>
+  const placeholder = <span className="p-4 text-white text-center italic">No bookings for now! We&apos;ll be around...</span>
 
   const showCards = shows?.map((show) => {
     // only display upcoming shows 
@@ -61,11 +57,13 @@ export default function ShowList() {
 
       <div className="flex flex-col items-center justify-left w-3/5 sm:w-4/5">
         <div className="relative w-full h-full">
-          <div
-            className="w-full h-full absolute z-20 pointer-events-none rounded-2xl"
-            style={{
-              background: `linear-gradient(to bottom, transparent 60%, black 100%)`
-            }} />
+          {showCards &&
+            <div
+              className="w-full h-full absolute z-20 pointer-events-none rounded-2xl"
+              style={{
+                background: `linear-gradient(to bottom, transparent 60%, black 100%)`
+              }} />
+          }
           <ul className="flex flex-col items-center gap-2 relative p-4">
             {showCards ?? placeholder}
           </ul>
