@@ -10,7 +10,7 @@ export default function PageHeader({ title }) {
         src={ctx.currentStyle?.pageHeader}
         className="w-full h-full brightness-50 object-cover"
       />
-      <span className="font-instrument text-4xl font-bold absolute">{title ?? "(Heading...)"}</span>
+      <span className="italic font-instrument text-4xl font-bold absolute">{title ?? "(Heading...)"}</span>
     </div>
 
   )

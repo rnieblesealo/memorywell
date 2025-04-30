@@ -17,6 +17,7 @@ const PageContext = createContext(null);
 
 const styles = {
   normal: {
+    style: "normal",
     accentColor: "oklch(60.6% 0.25 292.717)",
     hero: <hero.NormalLogo />,
     pageHeader: "/music-bg.jpeg",
@@ -24,6 +25,7 @@ const styles = {
     backgroundColor: "black"
   },
   almostReal: {
+    style: "almostReal",
     accentColor: "#0049ad",
     hero: <hero.AlmostRealLogo />,
     pageHeader: "/arhero-alt.png",

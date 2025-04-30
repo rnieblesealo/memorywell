@@ -50,18 +50,18 @@ export default function ShowList() {
 
   return (
     <div className="w-full h-full flex flex-col items-center">
-      <span className="text-white text-2xl font-instrument font-bold mb-4">Upcoming Shows</span>
+      <span className="text-white text-2xl font-instrument font-bold mb-8">Upcoming Shows</span>
 
       <div className="flex flex-col items-center w-3/5 sm:w-4/5">
         <div className="relative w-full h-full">
           {showCards &&
             <div
-              className="w-full h-full absolute z-20 pointer-events-none rounded-2xl"
+              className="w-full h-full absolute z-20 pointer-events-none rounded-lg"
               style={{
                 background: `linear-gradient(to bottom, transparent 85%, black 100%)`
               }} />
           }
-          <ul className="w-full h-full flex flex-col items-center gap-2 relative p-4">
+          <ul className="w-full h-full flex flex-col items-center gap-2 relative">
             {showCards ?? placeholder}
           </ul>
         </div>
