@@ -11,7 +11,7 @@ const ARPreorderLink = () => {
     <Link
       to="https://pleasuretapes.myshopify.com/products/pt-122-almost-real-by-memory-well-ltd-100-cd-preorder"
       target="_blank"
-      className="text-white text-center flex flex-col items-center justify-center font-instrument bg-black p-5 rounded-lg animate-fade-up w-3/5 sm:w-4/5"
+      className="text-white text-center flex flex-col items-center justify-center font-instrument bg-black p-5 rounded-lg animate-fade-up w-3/5 sm:w-80"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{

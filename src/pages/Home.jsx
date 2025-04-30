@@ -9,10 +9,10 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-top gap-10">
       <Hero />
+      <ShowList />
       {ctx.currentStyle.style === "almostReal" &&
         <ARPreorderLink />
       }
-      <ShowList />
     </div >
   )
 }

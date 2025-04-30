@@ -14,7 +14,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/music" element={<Music />} />
         </Route>
-
       </Routes>
     </BrowserRouter>
   )
