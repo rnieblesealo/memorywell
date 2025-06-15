@@ -5,13 +5,27 @@ import PropTypes from "prop-types"
 import Show from "../components/Show"
 
 export default function ShowList() {
-  const [shows, setShows] = useState(null)
+  const [shows, setShows] = useState([])
 
   useEffect(() => {
     async function loadShows() {
       const showInfo = await getAllShows()
-      console.log(showInfo)
-      setShows(showInfo)
+
+      // Filer out shows whose start date is more than the current time + 4 hours in the past 
+      const displayedShows = showInfo.reduce((acc, show) => {
+        const showDate = new Date(show.date)
+        const now = new Date()
+        const fourHours = 4 * 60 * 60 * 1000 // Convert 4 hours to ms
+
+        // If show is less than its current time + 4 hours in the past, keep it
+        if (now.getTime() <= showDate.getTime() + fourHours) {
+          acc.push(show)
+        }
+
+        return acc
+      }, [])
+
+      setShows(displayedShows)
     }
 
     loadShows()
@@ -20,18 +34,6 @@ export default function ShowList() {
   const placeholder = <span className="p-4 text-white text-center italic">No bookings for now! We&apos;ll be around...</span>
 
   const showCards = shows?.map((show) => {
-    // only display upcoming shows 
-    // a show is considered "past" if the current time is more than 4 hours ahead of its doors time
-    if (show.date) {
-      const showDate = new Date(show.date);
-      const now = new Date() // returns now if no arg
-      const fourHours = 5 * 60 * 60 * 1000; // 4 hours in milliseconds
-
-      if (now.getTime() > showDate.getTime() + fourHours) {
-        return null;
-      }
-    }
-
     return (
       <Show
         key={show.id}
@@ -54,7 +56,7 @@ export default function ShowList() {
 
       <div className="flex flex-col items-center w-3/5 sm:w-4/5">
         <div className="relative w-full h-full">
-          {showCards &&
+          {showCards.length > 0 &&
             <div
               className="w-full h-full absolute z-20 pointer-events-none rounded-lg"
               style={{
@@ -62,7 +64,7 @@ export default function ShowList() {
               }} />
           }
           <ul className="w-full h-full flex flex-col items-center gap-2 relative">
-            {showCards ?? placeholder}
+            {showCards.length > 0 ? showCards : placeholder}
           </ul>
         </div>
       </div>
