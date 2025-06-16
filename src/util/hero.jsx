@@ -7,7 +7,7 @@ import { FaSpotify } from "react-icons/fa"
 import { SiApplemusic } from "react-icons/si"
 import { FaYoutube } from "react-icons/fa6"
 
-const StreamLink = ({ url, icon }) => {
+const StreamLink = ({ url, icon, text }) => {
   const ctx = UsePageContext()
 
   const [hovered, setHovered] = useState(false)
@@ -24,7 +24,7 @@ const StreamLink = ({ url, icon }) => {
         color: hovered ? ctx.currentStyle?.accentColor : "white",
         transition: "border 0.2s ease, color 0.2s ease",
       }}>
-      Stream on
+      {text ?? "Stream on"}
       <span className="text-2xl ml-2">
         {icon}
       </span>
@@ -83,9 +83,13 @@ export const PropofolLogo = () => {
       {/* Title card and stream link */}
       <div className="relative w-full h-full flex flex-col items-center justify-center mix-blend-difference">
         <h1 className="mb-4 text-white font-instrument font-light text-7xl sm:text-8xl lg:text-9xl">Propofol</h1>
-        <h2 className="mb-[50px] text-white font-instrument font-bold text-italic text-base sm:text-lg lg:text-xl">Music video out now</h2>
+        <h2 className="mb-[50px] text-white font-instrument font-bold italic text-base sm:text-lg lg:text-xl">Music video out now</h2>
         <div className="flex">
-          <StreamLink url="https://www.youtube.com/watch?v=B6LMETZJTIc" icon={<FaYoutube />} />
+          <StreamLink 
+            url="https://www.youtube.com/watch?v=B6LMETZJTIc" 
+            icon={<FaYoutube />} 
+            text="Watch on"
+          />
         </div>
       </div>
     </div >
