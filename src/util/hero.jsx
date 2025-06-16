@@ -1,42 +1,7 @@
-import { Link } from "react-router-dom"
-import { UsePageContext } from "../util/context"
-import PropTypes from "prop-types"
-import { useState } from "react"
-
+import { StreamLink } from "../components/StreamLink"
 import { FaSpotify } from "react-icons/fa"
 import { SiApplemusic } from "react-icons/si"
 import { FaYoutube } from "react-icons/fa6"
-
-const StreamLink = ({ url, icon, text }) => {
-  const ctx = UsePageContext()
-
-  const [hovered, setHovered] = useState(false)
-
-  return (
-    <Link
-      to={url}
-      target="_blank"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="max-w-15 text-md h-min font-liter text-white rounded-lg p-2 flex items-center mx-1"
-      style={{
-        border: hovered ? `1px solid ${ctx.currentStyle?.accentColor}` : "1px solid white",
-        color: hovered ? ctx.currentStyle?.accentColor : "white",
-        transition: "border 0.2s ease, color 0.2s ease",
-      }}>
-      {text ?? "Stream on"}
-      <span className="text-2xl ml-2">
-        {icon}
-      </span>
-    </Link>
-  )
-}
-
-StreamLink.propTypes = {
-  url: PropTypes.string,
-  icon: PropTypes.node,
-  text: PropTypes.string
-}
 
 export const NormalLogo = () => (
   <div className="w-full pointer-events-none">
@@ -85,9 +50,9 @@ export const PropofolLogo = () => {
         <h1 className="mb-4 text-white font-instrument font-light text-7xl sm:text-8xl lg:text-9xl">Propofol</h1>
         <h2 className="mb-[50px] text-white font-instrument font-bold italic text-base sm:text-lg lg:text-xl">Music video out now</h2>
         <div className="flex">
-          <StreamLink 
-            url="https://www.youtube.com/watch?v=B6LMETZJTIc" 
-            icon={<FaYoutube />} 
+          <StreamLink
+            url="https://www.youtube.com/watch?v=B6LMETZJTIc"
+            icon={<FaYoutube />}
             text="Watch on"
           />
         </div>
