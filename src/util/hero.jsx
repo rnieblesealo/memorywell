@@ -47,8 +47,8 @@ export const PropofolLogo = () => {
       />
       {/* Title card and stream link */}
       <div className="relative w-full h-full flex flex-col items-center justify-center mix-blend-difference">
-        <h1 className="mb-4 text-white font-instrument font-light text-7xl sm:text-8xl lg:text-9xl">Propofol</h1>
-        <h2 className="mb-[50px] text-white font-instrument font-bold italic text-base sm:text-lg lg:text-xl">Music video out now</h2>
+        <h1 className="mb-4 text-white font-instrument font-light text-7xl sm:text-8xl lg:text-9xl bold">Propofol</h1>
+        <h2 className="mb-[50px] text-white font-instrument italic text-base sm:text-lg lg:text-xl">Music video out now</h2>
         <div className="flex">
           <StreamLink
             url="https://www.youtube.com/watch?v=B6LMETZJTIc"
