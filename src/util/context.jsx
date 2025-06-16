@@ -31,6 +31,14 @@ const styles = {
     pageHeader: "/arhero-alt.png",
     background: "linear-gradient(to right, #000f24, black)",
     backgroundColor: "black"
+  },
+  propofol: {
+    style: "propofol",
+    accentColor: "oklch(37.2% 0.044 257.287)",
+    hero: <hero.PropofolLogo />,
+    pageHeader: "/music-bg.jpeg",
+    background: "black",
+    backgroundColor: "black"
   }
 }
 
@@ -131,5 +139,5 @@ export function UsePageContext() {
 
 PageContextProvider.propTypes = {
   children: PropTypes.node,
-  style: PropTypes.oneOf([null, "normal", "almostReal"])
+  style: PropTypes.oneOf([null, "normal", "almostReal", "propofol"])
 }

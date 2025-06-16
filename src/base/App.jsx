@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<PageContextProvider style="almostReal" />}>
+        <Route path="/" element={<PageContextProvider style="propofol" />}>
           <Route index={true} element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/music" element={<Music />} />
